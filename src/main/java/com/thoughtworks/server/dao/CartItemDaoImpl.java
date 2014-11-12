@@ -50,7 +50,8 @@ public class CartItemDaoImpl implements CartItemDao{
     }
 
     @Override
-    public void updateCartItemById(int id) {
-
+    public void updateCartItemById(CartItem cartItem) {
+        String sql = "UPDATE cartItems SET itemId = ?, num = ? WHERE id = ?";
+        jdbcTemplate.update(sql, cartItem.getItemId(), cartItem.getNum(), cartItem.getId());
     }
 }
