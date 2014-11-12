@@ -24,4 +24,9 @@ public class CartItemController {
     List<CartItem> getCartItems(){
         return cartItemServiceImpl.getCartItems();
     }
+
+    @RequestMapping(value = "/cartItems", method = RequestMethod.POST)
+    public void getCartItems(@RequestBody CartItem cartItem){
+        cartItemServiceImpl.insertCartItem(cartItem);
+    }
 }
