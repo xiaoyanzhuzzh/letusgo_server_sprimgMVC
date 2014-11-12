@@ -33,18 +33,18 @@ public class ItemDaoImpl implements ItemDao{
     @Override
     public void insertItem(Item item) {
         String sql = "INSERT INTO items VALUES(null, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, item.getName(), item.getPrice(), item.getUnit(), item.getCategoryId());
+        jdbcTemplate.update(sql, item.getName(), item.getPrice(), item.getUnit(), item.getCategory().getId());
     }
 
     @Override
     public void updateItemById(Item item) {
-        String sql = "UPDATE items SET name = ?, price = ?, unit = ?, categoryId = ? WHERE id = ?";
-        jdbcTemplate.update(sql, item.getName(), item.getPrice(), item.getUnit(), item.getCategoryId(), item.getId());
+        String sql = "UPDATE items SET item_name = ?, item_price = ?, item_unit = ?, item_categoryId = ? WHERE item_id = ?";
+        jdbcTemplate.update(sql, item.getName(), item.getPrice(), item.getUnit(), item.getCategory().getId(), item.getId());
     }
 
     @Override
     public void deleteItemById(int id) {
-        String sql = "DELETE FROM items WHERE id = ?";
+        String sql = "DELETE FROM items WHERE item_id = ?";
         jdbcTemplate.update(sql, id);
     }
 
