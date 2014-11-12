@@ -52,4 +52,10 @@ public class CartItemServiceImplTest {
         cartItemServiceImpl.insertCartItem(cartItem);
         verify(cartItemDaoImpl).insertCartItem(cartItem);
     }
+
+    @Test
+    public void can_delete_cartItem_by_id(){
+        cartItemServiceImpl.deleteCartItemById(1);
+        verify(cartItemDaoImpl).deleteCartItemById(1);
+    }
 }
