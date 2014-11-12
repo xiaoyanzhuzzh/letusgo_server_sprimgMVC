@@ -9,7 +9,6 @@ drop table cartItems;
 create table categories (
   id int(11) NOT NULL auto_increment,
   name varchar(30) NOT NULL,
-
   PRIMARY KEY  (id)
 );
 
@@ -31,10 +30,10 @@ create table cartItems (
   foreign key(itemId) references items(id)
 );
 
-insert into categories values(null,'饮品', 2);
-insert into categories values(null,'水果', 2);
-insert into categories values(null,'零食', 1);
-insert into categories values(null,'生活用品', 1);
+insert into categories values(null,'饮品');
+insert into categories values(null,'水果');
+insert into categories values(null,'零食');
+insert into categories values(null,'生活用品');
 
 insert into items values(null, '葡萄', 6.5, '斤', 2);
 insert into items values(null, '雪碧', 3.5, '瓶', 1);
