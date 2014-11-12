@@ -2,15 +2,15 @@ package com.thoughtworks.server.model;
 
 public class CartItem {
     private int id;
-    private int itemId;
+    private Item item;
     private int num;
 
     public CartItem() {
     }
 
-    public CartItem(int id, int itemId, int num) {
+    public CartItem(int id, Item item, int num) {
         this.id = id;
-        this.itemId = itemId;
+        this.item = item;
         this.num = num;
     }
 
@@ -30,11 +30,11 @@ public class CartItem {
         this.num = num;
     }
 
-    public int getItemId() {
-        return itemId;
+    public Item getItemId() {
+        return item;
     }
 
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
+    public void setItemId(Item item) {
+        this.item = item;
     }
 }
