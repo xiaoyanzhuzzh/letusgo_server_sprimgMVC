@@ -29,4 +29,9 @@ public class CartItemController {
     public void getCartItems(@RequestBody CartItem cartItem){
         cartItemServiceImpl.insertCartItem(cartItem);
     }
+
+    @RequestMapping(value = "/cartItems/{id}", method = RequestMethod.DELETE)
+    public void deleteCartItemById(@PathVariable int id){
+        cartItemServiceImpl.deleteCartItemById(id);
+    }
 }
