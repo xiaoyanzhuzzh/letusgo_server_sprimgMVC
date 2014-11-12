@@ -1,5 +1,6 @@
 package com.thoughtworks.server.dao;
 
+import com.thoughtworks.server.model.Category;
 import com.thoughtworks.server.model.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,13 +18,14 @@ public class ItemDaoImpl implements ItemDao{
 
     @Override
     public Item getItemById(int id) {
-        String sql = "SELECT * FROM items WHERE id = ?";
+        String sql = "SELECT items.*, categories.* FROM items, categories WHERE item_id = ? AND item_categoryId = category_id";
 
         return jdbcTemplate.queryForObject(sql, new RowMapper<Item>() {
             @Override
             public Item mapRow(ResultSet rs, int i) throws SQLException {
-                return new Item(rs.getInt("id"), rs.getString("name"), rs.getDouble("price"),
-                        rs.getString("unit"), rs.getInt("categoryId"));
+                Category category = new Category(rs.getInt("category_id"), rs.getString("category_name"));
+                return new Item(rs.getInt("item_id"), rs.getString("item_name"), rs.getDouble("item_price"),
+                        rs.getString("item_unit"),category);
             }
         }, id);
     }
@@ -48,13 +50,14 @@ public class ItemDaoImpl implements ItemDao{
 
     @Override
     public List<Item> getItems() {
-        String sql = "SELECT * FROM items";
+        String sql = "SELECT items.*, categories.* FROM items, categories WHERE item_categoryId = category_id";
 
         return jdbcTemplate.query(sql, new RowMapper<Item>() {
             @Override
             public Item mapRow(ResultSet rs, int i) throws SQLException {
-                return new Item(rs.getInt("id"), rs.getString("name"), rs.getDouble("price"),
-                        rs.getString("unit"), rs.getInt("categoryId"));
+                Category category = new Category(rs.getInt("category_id"), rs.getString("category_name"));
+                return new Item(rs.getInt("item_id"), rs.getString("item_name"), rs.getDouble("item_price"),
+                        rs.getString("item_unit"),category);
             }
         });
     }
