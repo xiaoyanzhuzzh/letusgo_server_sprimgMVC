@@ -61,7 +61,7 @@ public class CartItemServiceImplTest {
 
     @Test
     public void can_update_cartItem_by_id(){
-        cartItemServiceImpl.updateCartItemById(1);
-        verify(cartItemDaoImpl).updateCartItemById(1);
+        cartItemServiceImpl.updateCartItemById(cartItem);
+        verify(cartItemDaoImpl).updateCartItemById(cartItem);
     }
 }
