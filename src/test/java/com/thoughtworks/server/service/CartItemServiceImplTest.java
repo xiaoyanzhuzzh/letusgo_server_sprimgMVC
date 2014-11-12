@@ -25,6 +25,7 @@ public class CartItemServiceImplTest {
         when(cartItemDaoImpl.getCartItemById(id)).thenReturn(cartItem);
 
         cartItemServiceImpl = new CartItemServiceImpl();
+        cartItemServiceImpl.setCartItemDaoImpl(cartItemDaoImpl);
     }
 
     @Test
