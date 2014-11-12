@@ -34,4 +34,9 @@ public class CartItemController {
     public void deleteCartItemById(@PathVariable int id){
         cartItemServiceImpl.deleteCartItemById(id);
     }
+
+    @RequestMapping(value = "/cartItems/{id}", method = RequestMethod.PUT)
+    public void updateCartItemById(@RequestBody CartItem cartItem){
+        cartItemServiceImpl.updateCartItemById(cartItem);
+    }
 }
