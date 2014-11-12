@@ -58,4 +58,10 @@ public class ItemServiceImplTest {
         itemServiceImpl.insertItem(item);
         verify(itemDaoImpl).insertItem(item);
     }
+
+    @Test
+    public void can_update_item_by_id(){
+        itemServiceImpl.updateItemById(item);
+        verify(itemDaoImpl).updateItemById(item);
+    }
 }
