@@ -54,7 +54,7 @@ public class Item {
         return category;
     }
 
-    public void setCategory(int categoryId) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 }
