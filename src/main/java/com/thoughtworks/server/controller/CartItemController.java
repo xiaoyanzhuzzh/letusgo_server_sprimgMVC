@@ -5,6 +5,8 @@ import com.thoughtworks.server.service.CartItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class CartItemController {
@@ -15,5 +17,11 @@ public class CartItemController {
     public @ResponseBody
     CartItem getCartItemById(@PathVariable int id){
         return cartItemServiceImpl.getCartItemById(id);
+    }
+
+    @RequestMapping(value = "/cartItems", method = RequestMethod.GET)
+    public @ResponseBody
+    List<CartItem> getCartItems(){
+        return cartItemServiceImpl.getCartItems();
     }
 }
