@@ -27,6 +27,11 @@ public class ItemController {
         itemServiceImpl. deleteItemById(id);
     }
 
+    @RequestMapping(value = "items/{id}", method = RequestMethod.PUT)
+    public void updateItemById(@RequestBody Item item){
+        itemServiceImpl.updateItemById(item);
+    }
+
     @RequestMapping(value = "/items", method = RequestMethod.GET)
     public @ResponseBody List<Item> getItems(){
         return itemServiceImpl. getItems();
