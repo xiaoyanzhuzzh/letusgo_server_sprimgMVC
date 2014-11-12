@@ -15,4 +15,9 @@ public class CartItemServiceImpl implements CartItemService {
     public CartItem getCartItemById(int id) {
         return cartItemDaoImpl.getCartItemById(id);
     }
+
+    @Override
+    public void setCartItemDaoImpl(CartItemDao cartItemDaoImpl) {
+        this.cartItemDaoImpl = cartItemDaoImpl;
+    }
 }
