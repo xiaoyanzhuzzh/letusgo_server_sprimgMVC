@@ -30,7 +30,8 @@ public class ItemDaoImpl implements ItemDao{
 
     @Override
     public void insertItem(Item item) {
-
+        String sql = "INSERT INTO items VALUES(null, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, item.getName(), item.getPrice(), item.getUnit(), item.getCategoryId());
     }
 
     @Override
