@@ -2,7 +2,6 @@ package com.thoughtworks.server.controller;
 
 import com.thoughtworks.server.model.Category;
 import com.thoughtworks.server.service.CategoryService;
-import jdk.nashorn.internal.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
