@@ -13,4 +13,6 @@ public interface CartItemDao {
     void insertCartItem(CartItem cartItem);
 
     void deleteCartItemById(int id);
+
+    void updateCartItemById(int id);
 }
