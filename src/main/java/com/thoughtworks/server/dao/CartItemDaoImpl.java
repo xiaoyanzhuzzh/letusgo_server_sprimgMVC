@@ -18,7 +18,7 @@ public class CartItemDaoImpl implements CartItemDao{
 
     @Override
     public CartItem getCartItemById(int id) {
-        String sql = "SELECT * FROM cartItems, items WHERE cartItems.id = ? AND items.id = cartItems.itemId";
+        String sql = "SELECT cartItems.*,  items.* FROM cartItems, items WHERE cartItems.id = ? AND items.id = cartItems.itemId";
         return jdbcTemplate.queryForObject(sql, new RowMapper<CartItem>() {
             @Override
             public CartItem mapRow(ResultSet rs, int i) throws SQLException {
