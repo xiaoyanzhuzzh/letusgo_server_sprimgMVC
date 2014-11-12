@@ -5,6 +5,8 @@ import com.thoughtworks.server.model.CartItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CartItemServiceImpl implements CartItemService {
 
@@ -19,5 +21,10 @@ public class CartItemServiceImpl implements CartItemService {
     @Override
     public void setCartItemDaoImpl(CartItemDao cartItemDaoImpl) {
         this.cartItemDaoImpl = cartItemDaoImpl;
+    }
+
+    @Override
+    public List<CartItem> getCartItems() {
+        return null;
     }
 }
