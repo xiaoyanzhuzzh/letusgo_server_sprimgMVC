@@ -4,6 +4,7 @@ package com.thoughtworks.server.service;
 import com.thoughtworks.server.dao.CartItemDao;
 import com.thoughtworks.server.dao.CartItemDaoImpl;
 import com.thoughtworks.server.model.CartItem;
+import com.thoughtworks.server.model.Category;
 import com.thoughtworks.server.model.Item;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +28,8 @@ public class CartItemServiceImplTest {
         cartItemDaoImpl = mock(CartItemDaoImpl.class);
 
         int id = 1;
-        Item item = new Item(1, "apple", 3.5, "kg", 2);
+        Category category = new Category(1, "fruit");
+        Item item = new Item(1, "apple", 3.5, "kg", category);
         cartItem = new CartItem(1, item, 4);
         cartItems.add(cartItem);
 
