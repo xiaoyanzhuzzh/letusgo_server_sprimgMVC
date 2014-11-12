@@ -1,6 +1,7 @@
 package com.thoughtworks.server.dao;
 
 import com.thoughtworks.server.model.CartItem;
+import com.thoughtworks.server.model.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -17,22 +18,26 @@ public class CartItemDaoImpl implements CartItemDao{
 
     @Override
     public CartItem getCartItemById(int id) {
-        String sql = "SELECT * FROM cartItems WHERE id = ?";
+        String sql = "SELECT * FROM cartItems, items WHERE cartItems.id = ? AND items.id = cartItems.itemId";
         return jdbcTemplate.queryForObject(sql, new RowMapper<CartItem>() {
             @Override
             public CartItem mapRow(ResultSet rs, int i) throws SQLException {
-                return new CartItem(rs.getInt("id"), rs.getInt("itemId"), rs.getInt("num"));
+                Item item = new Item(rs.getInt("id"), rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("unit"), rs.getInt("categoryId"));
+                return new CartItem(rs.getInt("id"), item, rs.getInt("num"));
             }
         }, id);
     }
 
     @Override
     public List<CartItem> getCartItems() {
-        String sql = "SELECT * FROM cartItems";
+        String sql = "SELECT * FROM cartItems, items WHERE items.id = cartItems.itemId";
         return jdbcTemplate.query(sql, new RowMapper<CartItem>() {
             @Override
             public CartItem mapRow(ResultSet rs, int i) throws SQLException {
-                return new CartItem(rs.getInt("id"), rs.getInt("itemId"), rs.getInt("num"));
+                Item item = new Item(rs.getInt("id"), rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("unit"), rs.getInt("categoryId"));
+                return new CartItem(rs.getInt("id"), item, rs.getInt("num"));
             }
         });
     }
