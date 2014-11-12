@@ -19,7 +19,7 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/categories", method = RequestMethod.POST)
-    public void insertItem(@RequestBody Category category){
+    public void insertCategory(@RequestBody Category category){
         categoryServiceImpl.insertCategory(category);
     }
 
