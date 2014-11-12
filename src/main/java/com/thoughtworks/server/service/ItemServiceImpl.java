@@ -34,7 +34,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void updateItemById(Item item) {
-
+        itemDaoImpl.updateItemById(item);
     }
 
     @Override
