@@ -13,4 +13,6 @@ public interface ItemService {
     List<Item> getItems();
 
     void deleteItemById(int id);
+
+    void insertItem(Item item);
 }

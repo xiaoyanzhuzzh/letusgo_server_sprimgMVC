@@ -28,6 +28,11 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    public void insertItem(Item item) {
+        itemDaoImpl.insertItem(item);
+    }
+
+    @Override
     public List<Item> getItems() {
         return itemDaoImpl.getItems();
     }
