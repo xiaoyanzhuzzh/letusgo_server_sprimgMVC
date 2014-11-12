@@ -42,4 +42,9 @@ public class CartItemDaoImpl implements CartItemDao{
         String sql = "INSERT INTO cartItems VALUES(null, ?, ?)";
         jdbcTemplate.update(sql, cartItem.getItemId(), cartItem.getNum());
     }
+
+    @Override
+    public void deleteCartItemById(int id) {
+
+    }
 }
