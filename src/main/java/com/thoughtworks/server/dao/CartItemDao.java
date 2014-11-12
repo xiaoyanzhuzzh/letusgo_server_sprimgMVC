@@ -9,4 +9,6 @@ public interface CartItemDao {
     CartItem getCartItemById(int id);
 
     List<CartItem> getCartItems();
+
+    void insertCartItem(CartItem cartItem);
 }

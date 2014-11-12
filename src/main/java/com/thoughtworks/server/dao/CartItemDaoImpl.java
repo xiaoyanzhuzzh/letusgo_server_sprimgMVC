@@ -36,4 +36,9 @@ public class CartItemDaoImpl implements CartItemDao{
             }
         });
     }
+
+    @Override
+    public void insertCartItem(CartItem cartItem) {
+
+    }
 }
