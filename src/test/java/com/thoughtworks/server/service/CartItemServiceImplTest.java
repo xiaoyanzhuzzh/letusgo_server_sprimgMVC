@@ -46,4 +46,10 @@ public class CartItemServiceImplTest {
         assertThat(cartItemServiceImpl.getCartItems().size()).isEqualTo(1);
         verify(cartItemDaoImpl).getCartItems();
     }
+
+    @Test
+    public void can_insert_cartItem(){
+        cartItemServiceImpl.insertCartItem(cartItem);
+        verify(cartItemDaoImpl).insertCartItem(cartItem);
+    }
 }
