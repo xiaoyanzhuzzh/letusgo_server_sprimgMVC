@@ -14,17 +14,17 @@ public class CartItemServiceImpl implements CartItemService {
     private CartItemDao cartItemDaoImpl;
 
     @Override
-    public CartItem getCartItemById(int id) {
-        return cartItemDaoImpl.getCartItemById(id);
-    }
-
-    @Override
     public void setCartItemDaoImpl(CartItemDao cartItemDaoImpl) {
         this.cartItemDaoImpl = cartItemDaoImpl;
     }
 
     @Override
+    public CartItem getCartItemById(int id) {
+        return cartItemDaoImpl.getCartItemById(id);
+    }
+
+    @Override
     public List<CartItem> getCartItems() {
-        return null;
+        return cartItemDaoImpl.getCartItems();
     }
 }
