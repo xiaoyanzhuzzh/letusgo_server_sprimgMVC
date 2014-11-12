@@ -30,7 +30,7 @@ public class CategoryDaoImpl implements CategoryDao{
     }
 
     @Override
-    public void insertCategory(final Category category) {
+    public void insertCategory(Category category) {
         String sql = "INSERT INTO categories VALUES(null, ?)";
         jdbcTemplate.update(sql, category.getName());
     }
@@ -42,7 +42,7 @@ public class CategoryDaoImpl implements CategoryDao{
     }
 
     @Override
-    public void updateCategoryById(final Category category) {
+    public void updateCategoryById(Category category) {
         String sql = "UPDATE categories SET name = ? WHERE id = ?";
         jdbcTemplate.update(sql, category.getName(), category.getId());
     }
