@@ -36,7 +36,8 @@ public class ItemDaoImpl implements ItemDao{
 
     @Override
     public void updateItemById(Item item) {
-        
+        String sql = "UPDATE items SET name = ?, price = ?, unit = ?, categoryId = ? WHERE id = ?";
+        jdbcTemplate.update(sql, item.getName(), item.getPrice(), item.getUnit(), item.getCategoryId(), item.getId());
     }
 
     @Override
