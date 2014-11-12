@@ -9,7 +9,7 @@ drop table cartItems;
 create table categories (
   category_id int(11) NOT NULL auto_increment,
   category_name varchar(30) NOT NULL,
-  PRIMARY KEY  (id)
+  PRIMARY KEY  (category_id)
 );
 
 create table items (
@@ -18,16 +18,16 @@ create table items (
   item_price double NOT NULL,
   item_unit varchar(4) NOT NULL,
   item_categoryId int(11) NOT NULL,
-  PRIMARY KEY (id),
-  foreign key(categoryId) references categories(id)
+  PRIMARY KEY (item_id),
+  foreign key(item_categoryId) references categories(category_id)
 );
 
 create table cartItems (
   cartItem_id int(11) NOT NULL auto_increment,
   cartItem_itemId int(11) NOT NULL,
   cartItem_num int(11) NOT NULL,
-  PRIMARY KEY (id),
-  foreign key(itemId) references items(id)
+  PRIMARY KEY (cartItem_id),
+  foreign key(cartItem_itemId) references items(item_id)
 );
 
 insert into categories values(null,'饮品');
