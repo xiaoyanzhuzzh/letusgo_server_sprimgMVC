@@ -13,4 +13,6 @@ public interface CartItemService {
     List<CartItem> getCartItems();
 
     void insertCartItem(CartItem cartItem);
+
+    void deleteCartItemById(int id);
 }
