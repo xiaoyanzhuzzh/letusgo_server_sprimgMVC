@@ -1,7 +1,7 @@
 package com.thoughtworks.server.service;
 
-/**
- * Created by zhangzhihui on 14-11-12.
- */
+import com.thoughtworks.server.model.CartItem;
+
 public interface CartItemService {
+    CartItem getCartItemById(int id);
 }

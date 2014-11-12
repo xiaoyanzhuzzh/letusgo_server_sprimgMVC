@@ -1,7 +1,10 @@
 package com.thoughtworks.server.service;
 
-/**
- * Created by zhangzhihui on 14-11-12.
- */
-public class CartItemServiceImpl {
+import com.thoughtworks.server.model.CartItem;
+
+public class CartItemServiceImpl implements CartItemService {
+    @Override
+    public CartItem getCartItemById(int id) {
+        return null;
+    }
 }
