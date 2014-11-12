@@ -24,15 +24,15 @@ public class CategoryDaoImpl implements CategoryDao{
         return jdbcTemplate.queryForObject(sql, new RowMapper<Category>() {
             @Override
             public Category mapRow(ResultSet rs, int i) throws SQLException {
-                return new Category(rs.getInt("id"), rs.getString("name"), rs.getInt("numOfItem"));
+                return new Category(rs.getInt("id"), rs.getString("name"));
             }
         }, id);
     }
 
     @Override
     public void insertCategory(final Category category) {
-        String sql = "INSERT INTO categories VALUES(null, ?, ?)";
-        jdbcTemplate.update(sql, category.getName(), category.getNumberOfItem());
+        String sql = "INSERT INTO categories VALUES(null, ?)";
+        jdbcTemplate.update(sql, category.getName());
     }
 
     @Override
@@ -43,13 +43,12 @@ public class CategoryDaoImpl implements CategoryDao{
 
     @Override
     public void updateCategoryById(final Category category) {
-        String sql = "UPDATE categories SET name = ?, numOfItem = ? WHERE id = ?";
+        String sql = "UPDATE categories SET name = ? WHERE id = ?";
         jdbcTemplate.update(sql, new PreparedStatementSetter() {
             @Override
             public void setValues(PreparedStatement preparedStatement) throws SQLException {
                 preparedStatement.setString(1, category.getName());
-                preparedStatement.setInt(2, category.getNumberOfItem());
-                preparedStatement.setInt(3, category.getId());
+                preparedStatement.setInt(2, category.getId());
             }
         });
     }
@@ -60,7 +59,7 @@ public class CategoryDaoImpl implements CategoryDao{
         return jdbcTemplate.query(sql, new RowMapper<Category>() {
             @Override
             public Category mapRow(ResultSet rs, int i) throws SQLException {
-                return new Category(rs.getInt("id"), rs.getString("name"), rs.getInt("numOfItem"));
+                return new Category(rs.getInt("id"), rs.getString("name"));
             }
         });
     }
