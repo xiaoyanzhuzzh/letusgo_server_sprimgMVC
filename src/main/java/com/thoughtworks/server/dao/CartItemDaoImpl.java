@@ -45,18 +45,18 @@ public class CartItemDaoImpl implements CartItemDao{
     @Override
     public void insertCartItem(CartItem cartItem) {
         String sql = "INSERT INTO cartItems VALUES(null, ?, ?)";
-        jdbcTemplate.update(sql, cartItem.getItem(), cartItem.getNum());
+        jdbcTemplate.update(sql, cartItem.getItem().getId(), cartItem.getNum());
     }
 
     @Override
     public void deleteCartItemById(int id) {
-        String sql = "DELETE FROM cartItems WHERE id = ?";
+        String sql = "DELETE FROM cartItems WHERE cartItem_id = ?";
         jdbcTemplate.update(sql, id);
     }
 
     @Override
     public void updateCartItemById(CartItem cartItem) {
-        String sql = "UPDATE cartItems SET itemId = ?, num = ? WHERE id = ?";
-        jdbcTemplate.update(sql, cartItem.getItem(), cartItem.getNum(), cartItem.getId());
+        String sql = "UPDATE cartItems SET cartItem_itemId = ?, cartItem_num = ? WHERE cartItem_id = ?";
+        jdbcTemplate.update(sql, cartItem.getItem().getId(), cartItem.getNum(), cartItem.getId());
     }
 }
