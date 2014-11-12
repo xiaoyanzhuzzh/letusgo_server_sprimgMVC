@@ -5,17 +5,17 @@ public class Item {
     private String name;
     private double price;
     private String unit;
-    private int categoryId;
+    private Category category;
 
     public Item() {
     }
 
-    public Item(int id, String name, double price, String unit, int categoryId) {
+    public Item(int id, String name, double price, String unit, Category category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.unit = unit;
-        this.categoryId = categoryId;
+        this.category = category;
     }
 
     public int getId() {
@@ -50,11 +50,11 @@ public class Item {
         this.unit = unit;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(int categoryId) {
+        this.category = category;
     }
 }
