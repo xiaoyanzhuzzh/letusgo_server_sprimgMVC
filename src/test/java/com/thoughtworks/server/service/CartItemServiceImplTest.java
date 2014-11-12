@@ -58,4 +58,10 @@ public class CartItemServiceImplTest {
         cartItemServiceImpl.deleteCartItemById(1);
         verify(cartItemDaoImpl).deleteCartItemById(1);
     }
+
+    @Test
+    public void can_update_cartItem_by_id(){
+        cartItemServiceImpl.updateCartItemById(1);
+        verify(cartItemDaoImpl).updateCartItemById(1);
+    }
 }
