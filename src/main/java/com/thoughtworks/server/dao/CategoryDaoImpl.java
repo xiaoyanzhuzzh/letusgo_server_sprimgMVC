@@ -44,13 +44,7 @@ public class CategoryDaoImpl implements CategoryDao{
     @Override
     public void updateCategoryById(final Category category) {
         String sql = "UPDATE categories SET name = ? WHERE id = ?";
-        jdbcTemplate.update(sql, new PreparedStatementSetter() {
-            @Override
-            public void setValues(PreparedStatement preparedStatement) throws SQLException {
-                preparedStatement.setString(1, category.getName());
-                preparedStatement.setInt(2, category.getId());
-            }
-        });
+        jdbcTemplate.update(sql, category.getName(), category.getId());
     }
 
     @Override
