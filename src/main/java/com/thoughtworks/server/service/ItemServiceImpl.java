@@ -33,6 +33,11 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    public void updateItemById(Item item) {
+
+    }
+
+    @Override
     public List<Item> getItems() {
         return itemDaoImpl.getItems();
     }
