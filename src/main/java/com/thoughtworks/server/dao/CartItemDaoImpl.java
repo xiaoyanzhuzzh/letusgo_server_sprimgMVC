@@ -28,6 +28,12 @@ public class CartItemDaoImpl implements CartItemDao{
 
     @Override
     public List<CartItem> getCartItems() {
-        return null;
+        String sql = "SELECT * FROM cartItems";
+        return jdbcTemplate.query(sql, new RowMapper<CartItem>() {
+            @Override
+            public CartItem mapRow(ResultSet rs, int i) throws SQLException {
+                return new CartItem(rs.getInt("id"), rs.getInt("itemId"), rs.getInt("num"));
+            }
+        });
     }
 }
