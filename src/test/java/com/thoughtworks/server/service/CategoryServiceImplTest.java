@@ -26,7 +26,7 @@ public class CategoryServiceImplTest {
         categoryDaoImpl = mock(CategoryDaoImpl.class);
 
         int id = 1;
-        category = new Category(1, "水果", 2);
+        category = new Category(1, "水果");
 
         categories.add(category);
 
