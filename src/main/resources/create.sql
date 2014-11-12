@@ -7,25 +7,25 @@ drop table items;
 drop table cartItems;
 
 create table categories (
-  id int(11) NOT NULL auto_increment,
-  name varchar(30) NOT NULL,
+  category_id int(11) NOT NULL auto_increment,
+  category_name varchar(30) NOT NULL,
   PRIMARY KEY  (id)
 );
 
 create table items (
-  id int(11) NOT NULL auto_increment,
-  name varchar(30) NOT NULL,
-  price double NOT NULL,
-  unit varchar(4) NOT NULL,
-  categoryId int(11) NOT NULL,
+  item_id int(11) NOT NULL auto_increment,
+  item_name varchar(30) NOT NULL,
+  item_price double NOT NULL,
+  item_unit varchar(4) NOT NULL,
+  item_categoryId int(11) NOT NULL,
   PRIMARY KEY (id),
   foreign key(categoryId) references categories(id)
 );
 
 create table cartItems (
-  id int(11) NOT NULL auto_increment,
-  itemId int(11) NOT NULL,
-  num int(11) NOT NULL,
+  cartItem_id int(11) NOT NULL auto_increment,
+  cartItem_itemId int(11) NOT NULL,
+  cartItem_num int(11) NOT NULL,
   PRIMARY KEY (id),
   foreign key(itemId) references items(id)
 );
