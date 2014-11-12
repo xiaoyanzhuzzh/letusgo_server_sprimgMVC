@@ -39,7 +39,7 @@ public class CartItemServiceImpl implements CartItemService {
     }
 
     @Override
-    public void updateCartItemById(int id) {
-
+    public void updateCartItemById(CartItem cartItem) {
+        cartItemDaoImpl.updateCartItemById(cartItem);
     }
 }
