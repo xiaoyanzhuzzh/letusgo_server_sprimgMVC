@@ -11,4 +11,6 @@ public interface CartItemService {
     void setCartItemDaoImpl(CartItemDao cartItemDaoImpl);
 
     List<CartItem> getCartItems();
+
+    void insertCartItem(CartItem cartItem);
 }
