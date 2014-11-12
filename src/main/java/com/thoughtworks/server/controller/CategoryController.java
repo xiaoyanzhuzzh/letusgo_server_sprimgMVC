@@ -28,7 +28,7 @@ public class CategoryController {
         categoryServiceImpl.deleteCategoryById(id);
     }
 
-    @RequestMapping(value = "/categories", method = RequestMethod.PUT)
+    @RequestMapping(value = "/categories/{id}", method = RequestMethod.PUT)
     public void updateCategory(@RequestBody Category category){
         categoryServiceImpl.updateCategoryById(category);
     }
