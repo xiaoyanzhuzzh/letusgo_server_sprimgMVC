@@ -1,7 +1,8 @@
 package com.thoughtworks.server.dao;
 
-/**
- * Created by zhangzhihui on 14-11-12.
- */
+
+import com.thoughtworks.server.model.CartItem;
+
 public interface CartItemDao {
+    CartItem getCartItemById(int id);
 }
