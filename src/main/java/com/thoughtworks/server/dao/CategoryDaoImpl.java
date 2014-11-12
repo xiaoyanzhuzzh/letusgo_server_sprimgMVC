@@ -20,11 +20,11 @@ public class CategoryDaoImpl implements CategoryDao{
 
     @Override
     public Category getCategoryById(int id) {
-        String sql = "SELECT * FROM categories WHERE id = ?";
+        String sql = "SELECT * FROM categories WHERE category_id = ?";
         return jdbcTemplate.queryForObject(sql, new RowMapper<Category>() {
             @Override
             public Category mapRow(ResultSet rs, int i) throws SQLException {
-                return new Category(rs.getInt("id"), rs.getString("name"));
+                return new Category(rs.getInt("category_id"), rs.getString("category_name"));
             }
         }, id);
     }
@@ -37,13 +37,13 @@ public class CategoryDaoImpl implements CategoryDao{
 
     @Override
     public void deleteCategoryById(int id) {
-        String sql = "DELETE FROM categories WHERE id = ?";
+        String sql = "DELETE FROM categories WHERE category_id = ?";
         jdbcTemplate.update(sql, id);
     }
 
     @Override
     public void updateCategoryById(Category category) {
-        String sql = "UPDATE categories SET name = ? WHERE id = ?";
+        String sql = "UPDATE categories SET category_name = ? WHERE category_id = ?";
         jdbcTemplate.update(sql, category.getName(), category.getId());
     }
 
@@ -53,7 +53,7 @@ public class CategoryDaoImpl implements CategoryDao{
         return jdbcTemplate.query(sql, new RowMapper<Category>() {
             @Override
             public Category mapRow(ResultSet rs, int i) throws SQLException {
-                return new Category(rs.getInt("id"), rs.getString("name"));
+                return new Category(rs.getInt("category_id"), rs.getString("category_name"));
             }
         });
     }
