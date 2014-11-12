@@ -22,9 +22,9 @@ public class CartItemDaoImpl implements CartItemDao{
         return jdbcTemplate.queryForObject(sql, new RowMapper<CartItem>() {
             @Override
             public CartItem mapRow(ResultSet rs, int i) throws SQLException {
-                Item item = new Item(rs.getInt("id"), rs.getString("name"), rs.getDouble("price"),
-                        rs.getString("unit"), rs.getInt("categoryId"));
-                return new CartItem(rs.getInt("id"), item, rs.getInt("num"));
+                Item item = new Item(rs.getInt("item_id"), rs.getString("item_name"), rs.getDouble("item_price"),
+                        rs.getString("item_unit"), rs.getInt("item_categoryId"));
+                return new CartItem(rs.getInt("cartItem_id"), item, rs.getInt("cartItem_num"));
             }
         }, id);
     }
@@ -35,9 +35,9 @@ public class CartItemDaoImpl implements CartItemDao{
         return jdbcTemplate.query(sql, new RowMapper<CartItem>() {
             @Override
             public CartItem mapRow(ResultSet rs, int i) throws SQLException {
-                Item item = new Item(rs.getInt("id"), rs.getString("name"), rs.getDouble("price"),
-                        rs.getString("unit"), rs.getInt("categoryId"));
-                return new CartItem(rs.getInt("id"), item, rs.getInt("num"));
+                Item item = new Item(rs.getInt("item_id"), rs.getString("item_name"), rs.getDouble("item_price"),
+                        rs.getString("item_unit"), rs.getInt("item_categoryId"));
+                return new CartItem(rs.getInt("cartItem_id"), item, rs.getInt("cartItem_num"));
             }
         });
     }
