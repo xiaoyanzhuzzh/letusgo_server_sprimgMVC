@@ -18,7 +18,7 @@ public class CartItemDaoImpl implements CartItemDao{
 
     @Override
     public CartItem getCartItemById(int id) {
-        String sql = "SELECT cartItems.*,  items.* FROM cartItems, items WHERE cartItems.id = ? AND items.id = cartItems.itemId";
+        String sql = "SELECT cartItems.*,  items.* FROM cartItems, items WHERE cartItems.cartItem_id = ? AND items.item_id = cartItems.cartItem_itemId";
         return jdbcTemplate.queryForObject(sql, new RowMapper<CartItem>() {
             @Override
             public CartItem mapRow(ResultSet rs, int i) throws SQLException {
@@ -31,7 +31,7 @@ public class CartItemDaoImpl implements CartItemDao{
 
     @Override
     public List<CartItem> getCartItems() {
-        String sql = "SELECT * FROM cartItems, items WHERE items.id = cartItems.itemId";
+        String sql = "SELECT cartItems.*,  items.* FROM cartItems, items WHERE items.item_id = cartItems.cartItem_itemId";
         return jdbcTemplate.query(sql, new RowMapper<CartItem>() {
             @Override
             public CartItem mapRow(ResultSet rs, int i) throws SQLException {
