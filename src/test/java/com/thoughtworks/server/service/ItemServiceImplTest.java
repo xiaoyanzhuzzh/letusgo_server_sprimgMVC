@@ -2,6 +2,7 @@ package com.thoughtworks.server.service;
 
 import com.thoughtworks.server.dao.ItemDao;
 import com.thoughtworks.server.dao.ItemDaoImpl;
+import com.thoughtworks.server.model.Category;
 import com.thoughtworks.server.model.Item;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +26,8 @@ public class ItemServiceImplTest {
         itemDaoImpl = mock(ItemDaoImpl.class);
 
         int id = 1;
-        item = new Item(1, "葡萄", 6.5, "斤", 2);
+        Category category = new Category(1, "fruit");
+        item = new Item(1, "葡萄", 6.5, "斤", category);
         items.add(item);
 
         when(itemDaoImpl.getItemById(id)).thenReturn(item);
