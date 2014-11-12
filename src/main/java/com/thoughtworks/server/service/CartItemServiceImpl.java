@@ -37,4 +37,9 @@ public class CartItemServiceImpl implements CartItemService {
     public void deleteCartItemById(int id) {
         cartItemDaoImpl.deleteCartItemById(id);
     }
+
+    @Override
+    public void updateCartItemById(int id) {
+
+    }
 }
