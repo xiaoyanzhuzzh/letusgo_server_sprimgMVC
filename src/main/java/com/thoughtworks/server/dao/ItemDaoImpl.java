@@ -35,6 +35,11 @@ public class ItemDaoImpl implements ItemDao{
     }
 
     @Override
+    public void updateItemById(Item item) {
+        
+    }
+
+    @Override
     public void deleteItemById(int id) {
         String sql = "DELETE FROM items WHERE id = ?";
         jdbcTemplate.update(sql, id);
