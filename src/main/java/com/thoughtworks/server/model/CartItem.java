@@ -30,11 +30,11 @@ public class CartItem {
         this.num = num;
     }
 
-    public Item getItemId() {
+    public Item getItem() {
         return item;
     }
 
-    public void setItemId(Item item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 }
