@@ -52,4 +52,10 @@ public class ItemServiceImplTest {
         assertThat(itemServiceImpl.getItems().size()).isEqualTo(1);
         verify(itemDaoImpl).getItems();
     }
+
+    @Test
+    public void can_insert_item(){
+        itemServiceImpl.insertItem(item);
+        verify(itemDaoImpl).insertItem(item);
+    }
 }
