@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 
@@ -27,7 +28,7 @@ public class CategoryControllerTest {
     public void init_category(){
         category = new Category(1, "水果");
         categories.add(category);
-        
+
         categoryServiceImpl = mock(CategoryServiceImpl.class);
 
         int id = 1;
@@ -46,5 +47,11 @@ public class CategoryControllerTest {
     @Test
     public void can_get_all_categories(){
         assertEquals(1, categoryController.getCategories().size());
+    }
+
+    @Test
+    public void can_insert_category(){
+        categoryController.insertCategory(category);
+        verify(categoryServiceImpl).insertCategory(category);
     }
 }
