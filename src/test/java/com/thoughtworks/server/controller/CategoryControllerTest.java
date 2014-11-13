@@ -6,7 +6,6 @@ import com.thoughtworks.server.service.CategoryServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
-import org.springframework.ui.ExtendedModelMap;
 
 import java.util.ArrayList;
 import java.util.List;
