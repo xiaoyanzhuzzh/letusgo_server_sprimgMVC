@@ -5,8 +5,6 @@ import com.thoughtworks.server.model.Category;
 import com.thoughtworks.server.model.Item;
 import com.thoughtworks.server.service.CartItemService;
 import com.thoughtworks.server.service.CartItemServiceImpl;
-import com.thoughtworks.server.service.ItemService;
-import com.thoughtworks.server.service.ItemServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
