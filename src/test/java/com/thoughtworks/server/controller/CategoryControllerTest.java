@@ -54,4 +54,10 @@ public class CategoryControllerTest {
         categoryController.insertCategory(category);
         verify(categoryServiceImpl).insertCategory(category);
     }
+
+    @Test
+    public void can_update_category_by_id(){
+        categoryController.updateCategory(category);
+        verify(categoryServiceImpl).updateCategoryById(category);
+    }
 }
