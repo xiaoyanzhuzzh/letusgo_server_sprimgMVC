@@ -26,7 +26,7 @@ public class CartItemController {
     }
 
     @RequestMapping(value = "/cartItems", method = RequestMethod.POST)
-    public void getCartItems(@RequestBody CartItem cartItem){
+    public void insertCartItem(@RequestBody CartItem cartItem){
         cartItemServiceImpl.insertCartItem(cartItem);
     }
 
