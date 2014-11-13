@@ -60,4 +60,10 @@ public class CategoryControllerTest {
         categoryController.updateCategory(category);
         verify(categoryServiceImpl).updateCategoryById(category);
     }
+
+    @Test
+    public void can_delete_category_by_id(){
+        categoryController.deleteCategoryById(1);
+        verify(categoryServiceImpl).deleteCategoryById(1);
+    }
 }
