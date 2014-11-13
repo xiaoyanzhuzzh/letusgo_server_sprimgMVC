@@ -20,21 +20,31 @@ public class CategoryControllerTest {
     Category category;
     List<Category> categories = new ArrayList<Category>();
 
+    CategoryService categoryServiceImpl;
+    CategoryController categoryController;
+
     @Before
     public void init_category(){
         category = new Category(1, "水果");
         categories.add(category);
+        
+        categoryServiceImpl = mock(CategoryServiceImpl.class);
+
+        int id = 1;
+        when(categoryServiceImpl.getCategoryById(id)).thenReturn(category);
+        when(categoryServiceImpl.getCategories()).thenReturn(categories);
+
+        categoryController = new CategoryController();
+        ReflectionTestUtils.setField(categoryController, "categoryServiceImpl", categoryServiceImpl);
     }
 
     @Test
     public void can_get_category_by_id(){
-        CategoryService categoryServiceImpl = mock(CategoryServiceImpl.class);
-        int id = 1;
-        when(categoryServiceImpl.getCategoryById(id)).thenReturn(category);
-
-        CategoryController categoryController = new CategoryController();
-        ReflectionTestUtils.setField(categoryController, "categoryServiceImpl", categoryServiceImpl);
-
         assertEquals("水果", categoryController.getCategoryById(1).getName());
+    }
+
+    @Test
+    public void can_get_all_categories(){
+        assertEquals(1, categoryController.getCategories().size());
     }
 }
