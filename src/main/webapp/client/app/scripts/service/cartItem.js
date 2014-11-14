@@ -18,9 +18,13 @@ angular.module('letusgoApp')
       var cartItem = isExistInCart(item.id, cartItems);
       if (cartItem) {
         cartItem.number += 1;
+        modifyCartItemNumberData(cartItem);
       }
       else{
-        cartItems.push({item: item, number: 1});
+        var newCartItem = {item: item, num: 1};
+        cartItems.push(newCartItem);
+
+        setCartItemsData(newCartItem);
       }
     }
 
@@ -65,9 +69,11 @@ angular.module('letusgoApp')
         });
     }
 
-    function setCartItemsData(cartItems) {
+    function setCartItemsData(cartItem) {
+      console.log(cartItem);
 
-      $http({method: 'POST', url: '/api/cartItems', data: {'cartItems': cartItems}});
+      $http({method: 'POST', url: '/api/cartItems',
+        data: {id: null, item: cartItem.item, num: cartItem.num}});
     }
 
     function deleteCartItemData(id) {
@@ -82,7 +88,8 @@ angular.module('letusgoApp')
 
     function modifyCartItemNumberData(cartItem) {
 
-      $http({method: 'PUT', url: '/api/cartItems/' + cartItem.item.id, data:{'cartItem': cartItem}});
+      $http({method: 'PUT', url: '/api/cartItems/' + cartItem.id,
+        data:{id: cartItem.id, item: cartItem.item, number: cartItem.number}});
     }
 
     this.getCartItems = function(callback) {
@@ -98,7 +105,7 @@ angular.module('letusgoApp')
       this.getCartItems(function(data) {
 
         updateCartItems(item, data);
-        setCartItemsData(data);
+//        setCartItemsData(data);
       });
     };
 
@@ -140,14 +147,14 @@ angular.module('letusgoApp')
     };
 
     this.getTotalNumber = function(array){
-        var totalNumber = 0;
+        var totalNum = 0;
         if(!array){
           array = [];
         }
         for(var i = 0; i < array.length; i++){
-            totalNumber += array[i].number;
+            totalNum += array[i].num;
         }
-        return totalNumber;
+        return totalNum;
     };
 
     this.getTotalMoney = function(array){
@@ -156,7 +163,7 @@ angular.module('letusgoApp')
           array = [];
         }
         for(var i = 0; i < array.length; i++){
-            total += array[i].number * array[i].item.price;
+            total += array[i].num * array[i].item.price;
         }
         return total;
     };
