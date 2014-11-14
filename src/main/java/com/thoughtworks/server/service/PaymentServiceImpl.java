@@ -1,7 +1,16 @@
 package com.thoughtworks.server.service;
 
-/**
- * Created by zhangzhihui on 14-11-14.
- */
-public class PaymentServiceImpl {
+import com.thoughtworks.server.dao.CartItemDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class PaymentServiceImpl implements PaymentService{
+    @Autowired
+    private CartItemDao cartItemDaoImpl;
+
+    @Override
+    public void deleteCartItems() {
+        cartItemDaoImpl.deleteCartItems();
+    }
 }
