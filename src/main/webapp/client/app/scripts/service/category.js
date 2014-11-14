@@ -5,7 +5,7 @@ angular.module('letusgoApp')
 
     function getCategoriesData(callback){
 
-      $http.get('http://localhost:8080/api/categories')
+      $http.get('/api/categories')
        .success(function(data) {
 
          callback(data);
@@ -13,6 +13,7 @@ angular.module('letusgoApp')
     }
 
     function deleteCategoryData(id) {
+      console.log(id);
 
       $http.delete('/api/categories/' + id);
     }
@@ -24,7 +25,8 @@ angular.module('letusgoApp')
 
     function addCategoryData(category) {
 
-      $http({method: 'POST', url: '/api/categories/' + category.id, data:{'category': category}});
+      console.log(category.name);
+      $http({method: 'POST', url: '/api/categories', data:{id: null, name: category.name}});
     }
 
     this.getCategories = function (callback) {
