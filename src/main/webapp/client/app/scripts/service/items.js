@@ -26,7 +26,11 @@ angular.module('letusgoApp')
 
     function addItemData(item) {
 
-      $http({method: 'POST', url: 'api/items/' + item.id, data:{'item': item}});
+      console.log(item.name);
+      console.log(item);
+      $http({method: 'POST', url: '/api/items', data:{id: null,
+        name: item.name, price: item.price, unit: item.unit,
+        category: item.category}});
     }
 
     this.getItems = function(callback){
