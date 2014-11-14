@@ -14,6 +14,8 @@ angular.module('letusgoApp')
     $scope.categories = [];
     CategoryService.getCategories(function(data) {
       $scope.categories = data;
+      console.log($scope.categories);
+
     });
 
     $scope.showItemSignal = false;
@@ -38,17 +40,35 @@ angular.module('letusgoApp')
 
     $scope.addNewItem = function (item) {
 
-      console.log(item);
-      var index = _.findIndex($scope.categories, function(category){
-        return category.name = item.category.name;
-      });
+      console.log(item.category);
 
-      item.category = $scope.categories[index];
+      CategoryService.getCategories(function(data) {
+        console.log(data);
+        var index = _.findIndex(data, function(category){
+          return category.name = item.category.name;
+        });
 
-      ItemsService.addItem(item);
-      ItemsService.getItems(function(data) {
-        $scope.items = data;
+        item.category = data[index];
+        console.log(item.category);
+
+        ItemsService.addItem(item);
+        ItemsService.getItems(function(items) {
+          $scope.items = items;
+        });
+        $scope.showItemSignal = false;
+
       });
-      $scope.showItemSignal = false;
+//      var index = _.findIndex($scope.categories, function(category){
+//        return category.name = item.category.name;
+//      });
+//
+//      item.category = $scope.categories[index];
+//      console.log(item.category);
+//
+//      ItemsService.addItem(item);
+//      ItemsService.getItems(function(data) {
+//        $scope.items = data;
+//      });
+//      $scope.showItemSignal = false;
    };
 });
