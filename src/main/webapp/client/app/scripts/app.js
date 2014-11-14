@@ -16,36 +16,36 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/home.html',
+        templateUrl: 'client/app/views/home.html',
         controller: 'HomeCtrl'
       })
       .when('/itemsList', {
-        templateUrl: 'views/itemsList.html',
+        templateUrl: 'client/app/views/itemsList.html',
         controller: 'ItemsListCtrl'
       })
       .when('/cartItemsList', {
-        templateUrl: 'views/cartItemsList.html',
+        templateUrl: 'client/app/views/cartItemsList.html',
         controller: 'CartItemsListCtrl'
       })
 
       .when('/cartPayList', {
-        templateUrl: 'views/cartPayList.html',
+        templateUrl: 'client/app/views/cartPayList.html',
         controller: 'CartPayListCtrl'
       })
       .when('/categoryModify', {
-        templateUrl: 'views/categoryModify.html',
+        templateUrl: 'client/app/views/categoryModify.html',
         controller: 'CategoryModifyCtrl'
       })
       .when('/categoryAdd', {
-        templateUrl: 'views/categoryAdd.html',
+        templateUrl: 'client/app/views/categoryAdd.html',
         controller: 'CategoryAddCtrl'
       })
       .when('/itemModify', {
-        templateUrl: 'views/itemModify.html',
+        templateUrl: 'client/app/views/itemModify.html',
         controller: 'ItemModifyCtrl'
       })
       .when('/itemAdd', {
-        templateUrl: 'views/itemAdd.html',
+        templateUrl: 'client/app/views/itemAdd.html',
         controller: 'ItemAddCtrl'
       })
       .otherwise({
