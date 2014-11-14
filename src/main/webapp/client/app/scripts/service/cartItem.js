@@ -17,7 +17,7 @@ angular.module('letusgoApp')
     function updateCartItems(item, cartItems) {
       var cartItem = isExistInCart(item.id, cartItems);
       if (cartItem) {
-        cartItem.number += 1;
+        cartItem.num += 1;
         modifyCartItemNumberData(cartItem);
       }
       else{
@@ -87,8 +87,9 @@ angular.module('letusgoApp')
 
     function modifyCartItemNumberData(cartItem) {
 
+      console.log(cartItem);
       $http({method: 'PUT', url: '/api/cartItems/' + cartItem.id,
-        data:{id: cartItem.id, item: cartItem.item, number: cartItem.number}});
+        data:{id: cartItem.id, item: cartItem.item, num: cartItem.num}});
     }
 
     this.getCartItems = function(callback) {
