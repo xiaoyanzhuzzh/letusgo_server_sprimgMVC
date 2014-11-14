@@ -47,7 +47,7 @@ angular.module('letusgoApp')
 
       var cartItem = findCartItem(cartItems, id);
 
-      if(cartItem.number > 1){
+      if(cartItem.num > 1){
         cartItem.num -= 1;
       }
       return cartItem;
