@@ -13,7 +13,6 @@ angular.module('letusgoApp')
     }
 
     function deleteCategoryData(id) {
-      console.log(id);
 
       $http.delete('/api/categories/' + id);
     }
