@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="panel panel-success">
+    <div class="panel-heading text-center">
+      <h3 class="text-info">
+        <span class="glyphicon glyphicon-user">添加类别</span>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+          <div class="col-md-6 form-group text-info">&nbsp;</div>
+          <div class="col-md-3 right">
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="query" placeholder="搜索类别名称">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
+          </div>
+          <div class="col-md-2 form-group text-info">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="addButton()">添加分类</button>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-md-10 form-group">类名</div>
+                <div class="col-md-2 form-group">操作</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="row" ng-repeat="category in categories | filter:query">
+                <div class="col-md-10 form-group">{{category.name}}</div>
+                <div class="col-md-2 form-group">
+                  <button class="trash">
+                    <span class="glyphicon glyphicon-trash" ng-click="deleteCurrentCategory(category)"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-danger" ng-show="showSignal">
+            <div class="panel-body">
+              <div class="row">
+                <form>
+                  <div class="text-center form-group">
+                    <div class="text-center form-group" ng-show="false">爱地：<input ng-model="category.id"></div>
+                    <div class="text-center form-group">类名：<input ng-model="category.name"></div>
+                    <div class="text-center form-group">
+                      <button type="button" class="btn btn-success btn-sm" ng-click="addNewCategory(category)">添加</button>
+                      <button type="button" class="btn btn-warning btn-sm" ng-click="cancelButton()">取消</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

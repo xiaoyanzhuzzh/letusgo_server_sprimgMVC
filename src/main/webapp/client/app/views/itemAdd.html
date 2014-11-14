@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="panel panel-warning">
+    <div class="panel-heading text-center">
+      <h3 class="text-danger">
+        <span class="glyphicon glyphicon-user">商品管理</span>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-4 form-group text-info">
+          <h3 class="text-success">添加商品</h3>
+        </div>
+          <div class="col-md-3 right">
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="query" placeholder="搜索商品名称">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
+          </div>
+          <div class="col-md-3 form-group text-info">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="addButton()">添加商品</button>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4 form-group text-info">
+            <div class="panel panel-danger" ng-show="showItemSignal">
+              <div class="panel-body">
+                <div class="row">
+                  <form>
+                    <div class="text-center form-group">
+                      <div class="text-center form-group">
+                        类别：<select ng-model="itemInfo.category" ng-options="category.name as category.name for category in categories">
+                        </select>
+                      </div>
+                      <div class="text-center form-group" ng-show="false">爱地：<input ng-model="itemInfo.id"></div>
+                      <div class="text-center form-group" ng-show="false">条码：<input ng-model="itemInfo.barcode"></div>
+                      <div class="text-center form-group">名称：<input ng-model="itemInfo.name"></div>
+                      <div class="text-center form-group">单位：<input ng-model="itemInfo.unit"></div>
+                      <div class="text-center form-group">单价：<input ng-model="itemInfo.price"></div>
+                      <div class="text-center form-group">
+                        <button type="button" class="btn btn-success btn-sm" ng-click="addNewItem(itemInfo)">添加</button>
+                        <button type="button" class="btn btn-warning btn-sm" ng-click="cancelButton()">取消</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-md-8 form-group text-info">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-md-2 form-group text-center">类别</div>
+                <div class="col-md-1 form-group text-center" ng-show="false">id</div>
+                <div class="col-md-1 form-group text-center" ng-show="false">barcode</div>
+                <div class="col-md-2 form-group text-center">名称</div>
+                <div class="col-md-2 form-group text-center">单位</div>
+                <div class="col-md-2 form-group text-center">单价(元)</div>
+                <div class="col-md-3 form-group text-right">操作</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="row" ng-repeat="item in items | filter:query">
+                <div class="col-md-2 form-group text-center">{{item.category}}</div>
+                <div class="col-md-1 form-group text-center" ng-show="false">{{item.id}}</div>
+                <div class="col-md-1 form-group text-center" ng-show="false">{{item.barcode}}</div>
+                <div class="col-md-2 form-group text-center">{{item.name}}</div>
+                <div class="col-md-2 form-group text-center">{{item.unit}}</div>
+                <div class="col-md-2 form-group text-center">{{item.price}} 元</div>
+                <div class="col-md-3 form-group text-right">
+                  <button class="trash">
+                       <span class="glyphicon glyphicon-trash" ng-click="deleteCurrentItem(item)"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
