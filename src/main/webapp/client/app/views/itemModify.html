@@ -25,10 +25,16 @@
             <div class="panel-body">
               <div class="row">
                 <form>
+                  <div class="text-center form-group" ng-show="false">
+                    类别：<select ng-model="itemInfo.category.id" ng-options="category.id as category.id for category in categories">
+                  </select>
+                  </div>
+
                   <div class="text-center form-group">
-                    类别：<select ng-model="itemInfo.category" ng-options="category.name as category.name for category in categories">
+                    类别：<select ng-model="itemInfo.category.name" ng-options="category.name as category.name for category in categories">
                     </select>
                   </div>
+
                   <div class="text-center form-group" ng-show="false">id:<input ng-model="itemInfo.id"></div>
                   <div class="text-center form-group" ng-show="false">条形码：<input ng-model="itemInfo.barcode"></div>
                   <div class="text-center form-group">名称：<input ng-model="itemInfo.name"></div>
@@ -58,6 +64,7 @@
             </div>
             <div class="panel-body">
               <div class="row" ng-repeat="item in items | filter:query">
+                <div class="col-md-2 form-group text-center" ng-show="false">{{item.category.id}}</div>
                 <div class="col-md-2 form-group text-center">{{item.category.name}}</div>
                 <div class="col-md-1 form-group text-center" ng-show="false">{{item.id}}</div>
                 <div class="col-md-1 form-group text-center" ng-show="false">{{item.barcode}}</div>
@@ -78,4 +85,5 @@
         </div>
     </div>
   </div>
+</div>
 </div>

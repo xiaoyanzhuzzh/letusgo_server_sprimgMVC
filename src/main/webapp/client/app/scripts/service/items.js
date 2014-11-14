@@ -19,7 +19,9 @@ angular.module('letusgoApp')
 
     function putItemData(item) {
 
-      $http({method: 'PUT', url: '/api/items/' + item.id, data:{'item': item}});
+      $http({method: 'PUT', url: '/api/items/' + item.id, data:{id: item.id,
+        name: item.name, price: item.price, unit: item.unit,
+        category: item.category}});
     }
 
     function addItemData(item) {

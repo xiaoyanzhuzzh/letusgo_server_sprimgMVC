@@ -28,7 +28,10 @@ angular.module('letusgoApp')
         name: item.name,
         unit: item.unit,
         price: item.price,
-        category: item.category
+        category: {
+          id: item.category.id,
+          name: item.category.name
+        }
       };
     };
 
