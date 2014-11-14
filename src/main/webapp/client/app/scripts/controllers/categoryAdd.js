@@ -31,7 +31,7 @@ angular.module('letusgoApp')
     $scope.deleteCurrentCategory = function (category) {
 
       CategoryService.deleteCategory(category.id);
-      
+
       CategoryService.getCategories(function(data) {
         $scope.categories = data;
       });

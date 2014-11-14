@@ -25,7 +25,6 @@ angular.module('letusgoApp')
 
     function addCategoryData(category) {
 
-      console.log(category.name);
       $http({method: 'POST', url: '/api/categories', data:{id: null, name: category.name}});
     }
 
