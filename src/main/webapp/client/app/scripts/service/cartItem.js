@@ -74,7 +74,7 @@ angular.module('letusgoApp')
 
     function emptyCartItemsData(){
 
-      $http.post('/api/payment/');
+      $http.delete('/api/payment');
     }
 
     function modifyCartItemNumberData(cartItem) {
