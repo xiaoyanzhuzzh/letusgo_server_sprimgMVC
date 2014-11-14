@@ -39,7 +39,7 @@ angular.module('letusgoApp')
 
       var cartItem = findCartItem(cartItems, id);
 
-      cartItem.number += 1;
+      cartItem.num += 1;
       return cartItem;
     }
 
@@ -48,7 +48,7 @@ angular.module('letusgoApp')
       var cartItem = findCartItem(cartItems, id);
 
       if(cartItem.number > 1){
-        cartItem.number -= 1;
+        cartItem.num -= 1;
       }
       return cartItem;
     }
@@ -57,7 +57,7 @@ angular.module('letusgoApp')
 
       var findCartItem = findCartItem(cartItems, cartItem.item.id);
 
-      findCartItem.number = parseInt(cartItem.number);
+      findCartItem.num = parseInt(cartItem.num);
       return findCartItem;
     }
 
@@ -105,7 +105,6 @@ angular.module('letusgoApp')
       this.getCartItems(function(data) {
 
         updateCartItems(item, data);
-//        setCartItemsData(data);
       });
     };
 
