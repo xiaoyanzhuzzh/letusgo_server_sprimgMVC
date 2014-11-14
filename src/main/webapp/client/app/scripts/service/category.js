@@ -40,13 +40,15 @@ angular.module('letusgoApp')
       deleteCategoryData(id);
     };
 
-    this.putCategory = function(category) {
+    this.putCategory = function(category, callback) {
 
       putCategoryData(category);
+      callback();
     };
 
-    this.addCategory = function(category) {
+    this.addCategory = function(category, callback) {
 
       addCategoryData(category);
+      callback();
     };
   });
