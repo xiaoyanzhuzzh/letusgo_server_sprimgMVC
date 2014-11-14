@@ -5,7 +5,7 @@ angular.module('letusgoApp')
 
     function getCategoriesData(callback){
 
-      $http.get('/api/categories')
+      $http.get('http://localhost:8080/api/categories')
        .success(function(data) {
 
          callback(data);
