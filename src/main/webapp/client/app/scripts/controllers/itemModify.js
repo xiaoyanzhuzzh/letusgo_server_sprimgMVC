@@ -21,6 +21,7 @@ angular.module('letusgoApp')
 
     $scope.modifyButton = function (item) {
       $scope.showItemSignal = true;
+      console.log(item.category);
 
       $scope.itemInfo = {
         id: item.id,
@@ -49,10 +50,16 @@ angular.module('letusgoApp')
     };
 
     $scope.modifyCurrentItem = function (newItem) {
-
-      ItemsService.putItem(newItem);
-      ItemsService.getItems(function(data) {
-        $scope.items = data;
+      console.log(newItem);
+      ItemsService.putItem(newItem, function(){
+        ItemsService.getItems(function(data) {
+          $scope.items = data;
+        });
       });
+//      ItemsService.getItems(function(data) {
+//        $scope.items = data;
+//      });
+
+      $scope.showItemSignal = false;
     };
   });
