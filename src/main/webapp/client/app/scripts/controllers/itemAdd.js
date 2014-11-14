@@ -37,7 +37,13 @@ angular.module('letusgoApp')
     };
 
     $scope.addNewItem = function (item) {
-      item.id = $scope.items[$scope.items.length - 1].id + 1;
+
+      console.log(item);
+      var index = _.findIndex($scope.categories, function(category){
+        return category.name = item.category.name;
+      });
+
+      item.category = $scope.categories[index];
 
       ItemsService.addItem(item);
       ItemsService.getItems(function(data) {
