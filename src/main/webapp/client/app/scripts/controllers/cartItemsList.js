@@ -35,6 +35,7 @@ angular.module('letusgoApp')
     $scope.cartItems = [];
     updateData();
 
+
     $scope.addCartItemNumber = function(cartItem){
 
       CartItemsService.addCartItemNumber(cartItem.item.id, function(){
@@ -43,6 +44,7 @@ angular.module('letusgoApp')
     };
 
     $scope.reduceCartItemNumber = function(cartItem){
+      console.log(cartItem);
 
       CartItemsService.reduceCartItemNumber(cartItem.item.id, function(){
         updateData();
