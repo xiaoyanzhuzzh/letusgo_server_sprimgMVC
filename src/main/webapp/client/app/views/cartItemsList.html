@@ -29,12 +29,12 @@
             <button class="addButton">
               <span class="glyphicon glyphicon-plus" ng-click="addCartItemNumber(cartItem)"></span>
             </button>
-            <input type="text" ng-model="cartItem.number" ng-pattern="/^\d+$/" ng-change="changeCartItemNumber(cartItem)">
+            <input type="text" ng-model="cartItem.num" ng-pattern="/^\d+$/" ng-change="changeCartItemNumber(cartItem)">
             <button class="reduceButton" ng-click="reduceCartItemNumber(cartItem)">
               <span class="glyphicon glyphicon-minus"></span>
             </button>
             </div>
-            <div class="col-md-2 form-group text-success">{{(cartItem.number * cartItem.item.price).toFixed(2)}}</div>
+            <div class="col-md-2 form-group text-success">{{(cartItem.num * cartItem.item.price).toFixed(2)}}</div>
             <div class="col-md-2 form-group">
             <button class="trash">
             <span class="glyphicon glyphicon-trash" ng-click="deleteCartItem(cartItem)"></span>
