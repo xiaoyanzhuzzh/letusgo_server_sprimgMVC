@@ -18,7 +18,10 @@ angular.module('letusgoApp')
 
     $scope.payButton = function() {
 
-      CartItemsService.emptyCartItems();
+      CartItemsService.emptyCartItems(function(){
+      });
+      ItemsService.set('cartCount', 0);
+      $scope.$emit('to-parent-updateCartCount');
 
       $scope.showPaySignal = false;
       $scope.showFinishPaySignal = true;
