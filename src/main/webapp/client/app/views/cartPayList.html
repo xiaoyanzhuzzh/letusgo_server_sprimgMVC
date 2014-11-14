@@ -19,11 +19,11 @@
         </div>
       </div>
       <div class="row text-danger" ng-repeat="cartPay in cartPayList">
-        <div class="col-md-2 form-group">&nbsp;&nbsp;&nbsp;{{cartPay.item.category}}</div>
+        <div class="col-md-2 form-group">&nbsp;&nbsp;&nbsp;{{cartPay.item.category.name}}</div>
         <div class="col-md-2 form-group">{{cartPay.item.name}}</div>
         <div class="col-md-2 form-group">{{(cartPay.item.price).toFixed(2)}}/{{cartPay.item.unit}}</div>
-        <div class="col-md-2 form-group">&nbsp;&nbsp;{{cartPay.number}}</div>
-        <div class="col-md-4 form-group">{{(cartPay.number *cartPay.item.price).toFixed(2)}}</div>
+        <div class="col-md-2 form-group">&nbsp;&nbsp;{{cartPay.num}}</div>
+        <div class="col-md-4 form-group">{{(cartPay.num *cartPay.item.price).toFixed(2)}}</div>
       </div>
       <div class="row text-info">
         <div id="class" class="col-md-2"><h4>&nbsp;&nbsp;&nbsp;总数：{{totalNumber}}</h4></div>
