@@ -20,7 +20,7 @@ angular.module('letusgoApp')
 
     function putCategoryData(category) {
 
-      $http({method: 'PUT', url: '/api/categories/' + category.id, data:{'category': category}});
+      $http({method: 'PUT', url: '/api/categories/' + category.id, data:{id: category.id, name: category.name}});
     }
 
     function addCategoryData(category) {
