@@ -70,7 +70,6 @@ angular.module('letusgoApp')
     }
 
     function setCartItemsData(cartItem) {
-      console.log(cartItem);
 
       $http({method: 'POST', url: '/api/cartItems',
         data: {id: null, item: cartItem.item, num: cartItem.num}});
