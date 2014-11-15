@@ -106,8 +106,9 @@ angular.module('letusgoApp')
 
       this.getCartItems(function(data) {
 
-        modifyCartItemNumberData(addCartItemNumberData(data, id));
-        callback();
+        modifyCartItemNumberData(addCartItemNumberData(data, id), function(){
+          callback();
+        });
       });
     };
 
@@ -115,8 +116,9 @@ angular.module('letusgoApp')
 
       this.getCartItems(function(data) {
 
-        modifyCartItemNumberData(reduceCartItemNumberData(data, id));
-        callback();
+        modifyCartItemNumberData(reduceCartItemNumberData(data, id), function(){
+          callback();
+        });
       });
     };
 
