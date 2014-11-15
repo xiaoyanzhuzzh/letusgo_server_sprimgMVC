@@ -77,10 +77,13 @@ angular.module('letusgoApp')
       $http.delete('/api/payment');
     }
 
-    function modifyCartItemNumberData(cartItem) {
+    function modifyCartItemNumberData(cartItem, callback) {
 
       $http({method: 'PUT', url: '/api/cartItems/' + cartItem.id,
-        data:{id: cartItem.id, item: cartItem.item, num: cartItem.num}});
+        data:{id: cartItem.id, item: cartItem.item, num: cartItem.num}})
+        .success(function(){
+          callback();
+      });
     }
 
     this.getCartItems = function(callback) {
@@ -119,8 +122,9 @@ angular.module('letusgoApp')
 
     this.changeCartItemNumber = function(changeCartItem, callback) {
 
-        modifyCartItemNumberData(changeCartItem);
-        callback();
+        modifyCartItemNumberData(changeCartItem ,function(){
+          callback();
+        });
     };
 
     this.deleteCartItem = function(id) {
