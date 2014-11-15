@@ -28,7 +28,7 @@ angular.module('letusgoApp')
         .success(function(){
 
           callback();
-      });
+        });
     }
 
     function addCategoryData(category, callback) {
