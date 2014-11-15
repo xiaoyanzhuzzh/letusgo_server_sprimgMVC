@@ -30,21 +30,21 @@ angular.module('letusgoApp')
 
     $scope.deleteCurrentCategory = function (category) {
 
-      CategoryService.deleteCategory(category.id);
-
-      CategoryService.getCategories(function(data) {
-        $scope.categories = data;
+      CategoryService.deleteCategory(category.id, function(){
+        CategoryService.getCategories(function(data) {
+          $scope.categories = data;
+        });
       });
     };
 
     $scope.addNewCategory = function (newCategory) {
 
-      CategoryService.addCategory(newCategory);
+      CategoryService.addCategory(newCategory, function(){
+        CategoryService.getCategories(function(data) {
+          $scope.categories = data;
+        });
 
-      CategoryService.getCategories(function(data) {
-        $scope.categories = data;
+        $scope.showSignal = false;
       });
-
-     $scope.showSignal = false;
     };
   });
